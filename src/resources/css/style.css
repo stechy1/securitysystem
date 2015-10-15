@@ -1,0 +1,24 @@
+.toolbar-button {
+    -fx-background-color: transparent;
+    -fx-background-repeat: no-repeat;
+}
+.toolbar-button:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.1);
+    -fx-border-color: rgba(0, 0, 0, 0.2);
+    -fx-border-radius: 5px;
+    -fx-border-style: solid;
+}
+
+.icon-run {
+    -fx-graphic: url("../icon/32/start.png");
+}
+.icon-stop {
+    -fx-graphic: url("../icon/32/stop.png");
+}
+
+.container-pane {
+    -fx-background-color: azure;
+    -fx-border-style: solid;
+    -fx-border-color: black;
+    -fx-border-width: 1px
+}

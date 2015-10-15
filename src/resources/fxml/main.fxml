@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.ListView?>
+
+<?import javafx.geometry.Insets?>
+<VBox   xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="cz.ti.petr.securitysystem.controller.MainController"
+        stylesheets="@../css/style.css">
+
+    <ToolBar>
+    </ToolBar>
+    <HBox VBox.vgrow="ALWAYS">
+        <VBox>
+            <ListView fx:id="listViewControls"/>
+        </VBox>
+        <Pane fx:id="paneContainer" HBox.hgrow="ALWAYS" styleClass="container-pane">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+        </Pane>
+    </HBox>
+    <ToolBar fx:id="toolbarStatusbar">
+
+    </ToolBar>
+</VBox>
