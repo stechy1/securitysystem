@@ -1,5 +1,6 @@
 package cz.ti.petr.securitysystem;
 
+import cz.ti.petr.securitysystem.model.service.Updater;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -53,5 +54,23 @@ public class App extends Application {
         primaryStage.setWidth(800);
         primaryStage.setHeight(600);
         primaryStage.show();
+    }
+
+    /**
+     * This method is called when the application should stop, and provides a
+     * convenient place to prepare for application exit and destroy resources.
+     * <p>
+     * <p>
+     * The implementation of this method provided by the Application class does nothing.
+     * </p>
+     * <p>
+     * <p>
+     * NOTE: This method is called on the JavaFX Application Thread.
+     * </p>
+     */
+    @Override
+    public void stop() throws Exception {
+        Updater.stopAll();
+        super.stop();
     }
 }

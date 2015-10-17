@@ -22,3 +22,7 @@
     -fx-border-color: black;
     -fx-border-width: 1px
 }
+.movement-button {
+    -fx-background-color: transparent;
+    -fx-graphic: url("../icon/16/hand_click.png");
+}

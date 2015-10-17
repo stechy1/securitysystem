@@ -35,7 +35,7 @@ public class ListCellFactorySecurityControl extends ListCell<FactorySecurityCont
 
         // Manage drag
         setOnDragDetected(event -> {
-            *//* drag was detected, start a drag-and-drop gesture*//*
+             //drag was detected, start a drag-and-drop gesture
             Dragboard db = startDragAndDrop(TransferMode.MOVE);
 
             // Visual during drag
@@ -43,7 +43,7 @@ public class ListCellFactorySecurityControl extends ListCell<FactorySecurityCont
             snapshotParameters.setFill(Color.TRANSPARENT);
             db.setDragView(snapshot(snapshotParameters, null));
 
-            *//* Put a string on a dragboard *//*
+             //Put a string on a dragboard
             ClipboardContent content = new ClipboardContent();
             content.putString(getItem().name);
             db.setContent(content);

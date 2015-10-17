@@ -2,18 +2,15 @@ package cz.ti.petr.securitysystem.controller;
 
 import cz.ti.petr.securitysystem.model.control.ListCellFactorySecurityControl;
 import cz.ti.petr.securitysystem.model.security.MySecurityManager;
-import cz.ti.petr.securitysystem.model.security.control.KeyboardSensor;
-import cz.ti.petr.securitysystem.model.security.control.SecurityControl;
 import cz.ti.petr.securitysystem.model.security.control.factory.FactoryKeyboardSensor;
 import cz.ti.petr.securitysystem.model.security.control.factory.FactoryMotionSensor;
 import cz.ti.petr.securitysystem.model.security.control.factory.FactorySecurityControl;
-import cz.ti.petr.securitysystem.model.security.control.factory.FactoryWindowSensor;
+import cz.ti.petr.securitysystem.model.security.control.factory.FactoryMagnetSensor;
+import cz.ti.petr.securitysystem.model.service.Updater;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Pane;
 import org.apache.log4j.Logger;
@@ -35,6 +32,7 @@ public class MainController implements Initializable {
     private Pane paneContainer;
 
     private MySecurityManager sm = new MySecurityManager();
+    private final Updater updater = new Updater(sm);
 
     /**
      * Called to initialize a controller after its root element has been
@@ -46,8 +44,6 @@ public class MainController implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //paneContainer.getChildren().setAll(sm.getControls());
-
         listViewControls.setCellFactory(param -> new ListCellFactorySecurityControl());
         listViewControls.setItems(getViewControls());
         listViewControls.setOnMouseClicked(click -> {
@@ -60,6 +56,8 @@ public class MainController implements Initializable {
                 paneContainer.getChildren().setAll(sm.getControls());
             }
         });
+
+        updater.start();
     }
 
     private ObservableList<FactorySecurityControl> getViewControls() {
@@ -67,7 +65,7 @@ public class MainController implements Initializable {
 
         controls.add(new FactoryKeyboardSensor());
         controls.add(new FactoryMotionSensor());
-        controls.add(new FactoryWindowSensor());
+        controls.add(new FactoryMagnetSensor());
 
 
         return controls;
